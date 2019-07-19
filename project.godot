@@ -15,12 +15,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="NormalMap"
+config/name="SpecularMap"
 config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "NormalMap" )
+enabled=PoolStringArray( "SpecularMap" )
 
 [input]
 
