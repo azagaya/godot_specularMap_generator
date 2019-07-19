@@ -1,12 +1,12 @@
-# Normal Map generator plugin for godot. 
+# Specular Map generator plugin for godot. 
 
-*Note: this is a work in progress. Many improvements are needed. For better normal maps generation, please use [Laigter](https://azagaya.itch.io/laigter). Its also free and opens source.* 
+*Note: this is a work in progress. Many improvements are needed. For better specular maps generation, please use [Laigter](https://azagaya.itch.io/laigter). Its also free and opens source.* \\
 
-This plugin creates a dock that lets you open a texture and create a normal map for it adjusting a few controls. The normal map is exported in the same directory than the original texture, with a "*_n.png" prefix.
+*Note 2: for better preview, you should also add normal map. You can generate it with [Laigter](https://azagaya.itch.io/laigter), or with the [Normal Map Dock for Godot](https://github.com/azagaya/godot_normalMap_generator)*
+
+This plugin creates a dock that lets you open a texture and create a specular map for it adjusting a few controls. The specular map is exported in the same directory than the original texture, with a "*_s.png" prefix.
 
 ## Screenshots
 
-![godot-normal-1](https://user-images.githubusercontent.com/46932830/61228887-7fa57f80-a6fd-11e9-9298-1cd42b5093d5.png)
-![godot-normal-2](https://user-images.githubusercontent.com/46932830/61228888-7fa57f80-a6fd-11e9-9897-5ee11bac15f1.png)
-
-
+![imagen](https://user-images.githubusercontent.com/46932830/61561568-b1904c00-aa45-11e9-9953-b165711936ba.png)
+![imagen](https://user-images.githubusercontent.com/46932830/61561581-b9e88700-aa45-11e9-9de2-44b7eb63992a.png)
