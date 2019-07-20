@@ -1,8 +1,13 @@
 # Specular Map generator plugin for godot. 
 
-*Note: this is a work in progress. Many improvements are needed. For better specular maps generation, please use [Laigter](https://azagaya.itch.io/laigter). Its also free and opens source.* \\
+*Note: this is a work in progress. Many improvements are needed. For better specular maps generation, please use [Laigter](https://azagaya.itch.io/laigter). Its also free and opens source.*
 
 *Note 2: for better preview, you should also add normal map. You can generate it with [Laigter](https://azagaya.itch.io/laigter), or with the [Normal Map Dock for Godot](https://github.com/azagaya/godot_normalMap_generator)*
+
+## Contribute
+
+If you know how to use godot, any help is welcome! (Help is needed specially in GUI).
+The plugin is free and open source, but you can also support this (and other of my projects) by buying the pluging [here](https://azagaya.itch.io/godot-specular-map-generator).
 
 This plugin creates a dock that lets you open a texture and create a specular map for it adjusting a few controls. The specular map is exported in the same directory than the original texture, with a "*_s.png" prefix.
 
