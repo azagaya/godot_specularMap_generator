@@ -10,15 +10,15 @@ var type_of_texture = ""
 
 func _ready():
 	texture_rect = $ViewportSpecular/Specular
-	viewport = $GUI/ViewportContainer/Viewport
+	viewport = $GUI/VBoxContainer/ViewportContainer/Viewport
 	viewport.size = texture_rect.texture.get_size()
 		
-	light2d_node = $GUI/ViewportContainer/Viewport/TextureRect/Light2D
+	light2d_node = $GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect/Light2D
 	viewport_container_node = $GUI/ViewportContainer
-	$GUI/HBoxContainer_ColorPicker/ColorPickerButton.color = light2d_node.color
-	$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("specularTexture", $ViewportSpecular.get_texture())
-	$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("screen_size",$GUI/ViewportContainer.get_rect().size)
-	$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("custom_normal",true)
+	$GUI/VBoxContainer/HBoxContainer_ColorPicker/ColorPickerButton.color = light2d_node.color
+	$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("specularTexture", $ViewportSpecular.get_texture())
+	$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("screen_size",$GUI/VBoxContainer/ViewportContainer.get_rect().size)
+	$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("custom_normal",true)
 
 func _on_SpinBoxBlur_value_changed(value):
 	texture_rect.material.set_shader_param("blur",value)
@@ -38,7 +38,7 @@ func _on_TextureButton_pressed():
 	type_of_texture = "Texture"
 	$FileDialog.rect_size = get_tree().root.size / 2;
 	$FileDialog.popup_centered();
-	$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("custom_normal",false)
+	$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("custom_normal",false)
 
 
 func _on_FileDialog_file_selected(path):
@@ -55,9 +55,9 @@ func _on_FileDialog_file_selected(path):
 			$ViewportSpecular.size = texture_rect.texture.get_size()
 			texture_rect.position = $ViewportSpecular.size/2;
 			
-			$GUI/ViewportContainer/Viewport/TextureRect.texture = itex
+			$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.texture = itex
 		elif (type_of_texture == "Normal"):
-			$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("normal_texture",itex)
+			$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("normal_texture",itex)
 			
 # Used for tracking the mouse and other input events.
 # Currently this is only used to move the Light2D node.
@@ -78,7 +78,7 @@ func _input(event):
 				# First, convert the position so it is in a 0-1 range on both axis.
 				var light_pos = relative_mouse_pos / viewport_container_node.rect_size
 				# Multiple by the viewport size so the position is within viewport space.
-				light_pos *= $GUI/ViewportContainer/Viewport.size
+				light_pos *= $GUI/VBoxContainer/ViewportContainer/Viewport.size
 				# Finally, set the position.
 				light2d_node.global_position = light_pos
 
@@ -93,10 +93,10 @@ func _on_SpinBoxLightScale_value_changed(value):
 
 func _on_Specular_toggled(button_pressed):
 	if (button_pressed):
-		$GUI/ViewportContainer/Viewport/CanvasModulate.color = Color(1.0,1.0,1.0,1.0)
+		$GUI/VBoxContainer/ViewportContainer/Viewport/CanvasModulate.color = Color(1.0,1.0,1.0,1.0)
 	else:
-		$GUI/ViewportContainer/Viewport/CanvasModulate.color = Color(0.8,0.8,0.8,1.0)
-	$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("specular_preview",button_pressed)
+		$GUI/VBoxContainer/ViewportContainer/Viewport/CanvasModulate.color = Color(0.8,0.8,0.8,1.0)
+	$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("specular_preview",button_pressed)
 
 
 func _on_HSliderThresh_value_changed(value):
@@ -115,4 +115,4 @@ func _on_NormalButton_pressed():
 	type_of_texture = "Normal"
 	$FileDialog.rect_size = get_tree().root.size / 2;
 	$FileDialog.popup_centered();
-	$GUI/ViewportContainer/Viewport/TextureRect.material.set_shader_param("custom_normal",true)
+	$GUI/VBoxContainer/ViewportContainer/Viewport/TextureRect.material.set_shader_param("custom_normal",true)
