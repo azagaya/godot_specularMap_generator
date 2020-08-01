@@ -6,16 +6,16 @@ uniform float bright : hint_range(-1,1) = 0;
 uniform int blur : hint_range(0,10) = 5;
 uniform bool invert = false;
 
-vec4 gray_scale(sampler2D TEXTURE, vec2 texCoord){
-	vec4  FragColor = texture(TEXTURE, texCoord);
+vec4 gray_scale(sampler2D texture, vec2 texCoord){
+	vec4  FragColor = texture(texture, texCoord);
     float average = (FragColor.r +FragColor.g +FragColor.b)/3.0;
     return vec4(vec3(average), 1.0);
 }
 
-vec4 borders(sampler2D TEXTURE, vec2 texCoord){
+vec4 borders(sampler2D texture, vec2 texCoord){
 	if(texCoord.x > 1.0 || texCoord.y > 1.0 || texCoord.x < 0.0 || texCoord.y < 0.0)
 		return vec4(0.0);
-	return vec4(vec3(float(texture(TEXTURE, texCoord).a != 0.0)),1.0);
+	return vec4(vec3(float(texture(texture, texCoord).a != 0.0)),1.0);
 }
 
 void fragment() {
